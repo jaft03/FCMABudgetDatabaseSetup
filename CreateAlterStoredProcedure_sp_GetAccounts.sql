@@ -1,0 +1,23 @@
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+
+
+
+CREATE OR ALTER PROCEDURE [dbo].[sp_GetAccounts]
+	@UserID UNIQUEIDENTIFIER
+AS
+BEGIN
+
+	SELECT * FROM [dbo].[Accounts] WITH(NOLOCK)
+	WHERE [UserID] = @UserID
+	ORDER BY [AccountName] ASC;
+
+END;
+GO
+
+
+
